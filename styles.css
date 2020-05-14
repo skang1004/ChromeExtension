@@ -23,6 +23,14 @@ body {
   text-overflow: clip;
 }
 
+#add_todo {
+  margin-bottom: 15px;
+}
+
+#number {
+  margin-top: 15px;
+}
+
 button {
   margin-top: 5px;
   border-color: dodgerblue;
