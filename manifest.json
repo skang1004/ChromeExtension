@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "hackathon",
+  "version": "1.0",
+  "description": "chrome extension",
+  "permissions": ["storage", "tabs"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["main.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "MacCtrl+Shift+L"
+      },
+      "description": "Opens index.html"
+    }
+  }
+}
