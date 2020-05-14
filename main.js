@@ -18,7 +18,7 @@ function gotMessage(request, sender, sendRequest) {
   //while there is something in the todosList
   const startTimer = () => {
     setTimeout(() => {
-      body.style.transition = "opacity 5s";
+      body.style.transition = "opacity 3.5s";
       body.style.opacity = "0";
 
       //this settimeout is called after 5 seconds and hides the body while repopulating dom with todo list
@@ -63,8 +63,19 @@ function gotMessage(request, sender, sendRequest) {
         // button that brings back the original display and hides the todo list
         const button = document.createElement("button");
         button.innerText = "Back to Browsing!";
+        button.style.padding = "1rem";
+        button.style.borderRadius = "7px";
+        button.style.marinTop = "3rem";
+        button.style.fontFamily = "Arial, Helvetica, sans-serif";
+        button.style.fontSize = "2rem";
+        button.style.backgroundColor = "#333";
+        button.style.color = "#eee";
         button.addEventListener("mouseenter", () => {
           button.style.cursor = "pointer";
+          button.style.backgroundColor = "#444";
+        });
+        button.addEventListener("mouseleave", () => {
+          button.style.backgroundColor = "#333";
         });
 
         // event listener for button click that brings everything back
@@ -88,7 +99,8 @@ function gotMessage(request, sender, sendRequest) {
               startTimer();
             }, timerInMS);
           } else {
-            console.log("done with list");
+            // if theres nothing left in the list
+            return;
           }
         });
 
@@ -103,7 +115,7 @@ function gotMessage(request, sender, sendRequest) {
         // if list is empty, then reward the user with some congratulations or smth idk
 
         // also fade in our stuff
-      }, 1500);
+      }, 3500);
     }, timerInMS);
   };
   startTimer();

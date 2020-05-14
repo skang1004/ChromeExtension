@@ -1,6 +1,17 @@
 body {
-  background-color: darkslategrey;
+  background-color: #444;
+  border-radius: 10px;
   max-width: 150px;
+}
+
+html {
+  border-radius: 7px;
+}
+
+h1 {
+  color: #efefef;
+  text-align: center;
+  font-family: "Comfortaa", cursive;
 }
 
 #text {
@@ -24,15 +35,19 @@ body {
 }
 
 #add_todo {
-  margin-bottom: 15px;
+  margin-bottom: 6px;
 }
 
 #number {
-  margin-top: 15px;
+  margin-top: 6px;
+}
+
+#confirm_list {
+  margin-bottom: 10px;
 }
 
 button {
-  margin-top: 5px;
+  margin-top: 10px;
   border-color: dodgerblue;
   border-radius: 5px;
   background-color: dodgerblue;
