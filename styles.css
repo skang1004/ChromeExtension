@@ -1,5 +1,6 @@
 body {
   background-color: darkslategrey;
+  max-width: 150px;
 }
 
 #text {
@@ -12,8 +13,19 @@ body {
 
 #todos {
   font-family: Arial, Helvetica, sans-serif;
-  justify-content: center;
   color: white;
   font-size: 14px;
-  list-style: none;
+  padding-inline-start: 20px;
+}
+
+#todos li {
+  text-align: start;
+  text-overflow: clip;
+}
+
+button {
+  border-color: dodgerblue;
+  border-radius: 5px;
+  background-color: dodgerblue;
+  color: white;
 }
