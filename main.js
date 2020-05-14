@@ -1,21 +1,25 @@
+//this is what allows main.js to see what was sent from index.js
 chrome.runtime.onMessage.addListener(gotMessage);
+
+// reads the information passed through and manipulates current tab with javascript manipulation
 function gotMessage(request, sender, sendRequest) {
   const todos = request["todos"];
-  console.log("todos", todos);
   const timerValue = request["timerValue"];
   const body = document.querySelector("body");
-  const currentDisplay = window.getComputedStyle(body).display;
-  const currentOpacity = window.getComputedStyle(body).opacity;
-  console.log("currentopacity", currentOpacity);
-  console.log("this is body", body);
-  console.log("currentdisplay", currentDisplay);
-  const currentTransition = window.getComputedStyle(body).transition;
-  console.log("currentTransition", currentTransition);
+
+  const currentDisplay = window.getComputedStyle(body).display; //gets current tab display css
+  const currentOpacity = window.getComputedStyle(body).opacity; //gets current opacity
+  const currentTransition = window.getComputedStyle(body).transition; //current transition
+
+  //calculating inputted time into milliseconds
   const timerInMS = timerValue * 60000;
 
+  //after inputted time, setTimeout is called and sets opacity to 0 in 5 seconds
   setTimeout(() => {
     body.style.transition = "opacity 5s";
     body.style.opacity = "0";
+
+    //this settimeout is called after 5 seconds and hides the body while repopulating dom with todo list
     setTimeout(() => {
       // after display is = 'none'
       body.style.display = "none";
@@ -34,10 +38,11 @@ function gotMessage(request, sender, sendRequest) {
         li.style.listStyle = "none";
         li.style.fontFamily = "Arial, Helvetica, sans-serif";
         ul.appendChild(li);
+
+        // event listener for clicking on indidivual task to strike a line through
         li.addEventListener("click", (event) => {
           const currentID = event.target.id;
           const currentItem = document.getElementById(currentID);
-          //   const currentItemText = currentItem.innerText;
           if (
             window.getComputedStyle(currentItem).textDecoration !==
             "line-through"
@@ -46,10 +51,11 @@ function gotMessage(request, sender, sendRequest) {
           }
         });
       }
+      // button that brings back the original display and hides the todo list
       const button = document.createElement("button");
       button.innerText = "Back to Browsing!";
 
-      //troubleshooting bringing back the display on button 'bring back display'
+      // event listener for button click that brings everything back
       button.addEventListener("click", (event) => {
         ul.remove();
         body.style.display = currentDisplay;
@@ -70,36 +76,5 @@ function gotMessage(request, sender, sendRequest) {
 
       // also fade in our stuff
     }, 5000);
-    //fade the display out using opacity
   }, timerInMS);
-  /**
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   */
 }
-
-// const todosArray = [];
-// chrome.storage.sync.get("total", (result) => {
-//   if (result === 0) alert("Please add todos in the popup. (ctrl+shift+l)");
-
-//   for (let i = 0; i < result; i++) {
-//     chrome.storage.sync.get(i, (result) => {
-//       todosArray.push(result);
-//     });
-//   }
-// });
-// console.log("this is todosArray", todosArray);
-
-// // chrome.storage.sync.get("1", function (result) {
-// //   console.log("value is ", result);
-// // });
