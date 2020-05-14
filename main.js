@@ -7,6 +7,8 @@ function gotMessage(request, sender, sendRequest) {
   const currentDisplay = window.getComputedStyle(body).display;
   const currentOpacity = window.getComputedStyle(body).opacity;
   console.log("currentopacity", currentOpacity);
+  console.log("this is body", body);
+  console.log("currentdisplay", currentDisplay);
   const currentTransition = window.getComputedStyle(body).transition;
   console.log("currentTransition", currentTransition);
   const timerInMS = timerValue * 60000;
@@ -49,7 +51,7 @@ function gotMessage(request, sender, sendRequest) {
 
       //troubleshooting bringing back the display on button 'bring back display'
       button.addEventListener("click", (event) => {
-        html.removeChild("ul");
+        ul.remove();
         body.style.display = currentDisplay;
         body.style.opacity = currentOpacity;
         setTimeout(() => {

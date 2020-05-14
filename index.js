@@ -14,6 +14,7 @@ addTodoButton.addEventListener("click", () => {
 
 const confirmList = document.querySelector("#confirm_list");
 confirmList.addEventListener("click", () => {
+  console.log("clicked");
   const timer = document.querySelector("#number");
   const timerValue = timer.value || 0.04;
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
