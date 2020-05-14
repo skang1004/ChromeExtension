@@ -13,6 +13,11 @@
   "browser_action": {
     "default_popup": "index.html"
   },
+  "icons": {
+    "16": "icon/interface.png",
+    "48": "icon/interface.png",
+    "128": "icon/interface.png"
+  },
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {

@@ -26,8 +26,6 @@ addTodoButton.addEventListener("click", () => {
   ul.appendChild(listItem);
 });
 
-// const timerValue = timer.value || 5000;
-
 // event listener for on keypress 'enter', it submits the current task list so main.js can read the information
 const timerInMinutes = document.getElementById("number");
 timerInMinutes.addEventListener("keypress", (event) => {
