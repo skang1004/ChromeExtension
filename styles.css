@@ -53,3 +53,8 @@ button {
   background-color: dodgerblue;
   color: white;
 }
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(115, 152, 253);
+}
