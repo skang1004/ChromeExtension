@@ -30,7 +30,7 @@ addTodoButton.addEventListener("click", () => {
 const timerInMinutes = document.getElementById("number");
 timerInMinutes.addEventListener("keypress", (event) => {
   if (event.keyCode === 13) {
-    const timer = timerInMinutes.value || 0.04;
+    const timer = timerInMinutes.value || 0.06;
 
     // gets current tab and will repopulate the dom with main.js manipulations
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
